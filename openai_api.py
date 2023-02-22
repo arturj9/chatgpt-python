@@ -5,10 +5,13 @@ import openai
 
 load_dotenv()
 
+# Chave da api (.env).
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def openai_response(text):
-    
+    '''
+    Obtem uma resposta da api da OpenAi, a partir de um texto informado.
+    '''
     try:
 
         response = openai.Completion.create(
@@ -23,6 +26,7 @@ def openai_response(text):
         )
 
         return response['choices'][0]['text']
+    
     except:
         
         return 'Erro ao tentar obter resposta.'
